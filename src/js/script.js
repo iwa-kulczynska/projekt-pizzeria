@@ -1,7 +1,7 @@
 /* global Handlebars, utils, dataSource */ // eslint-disable-line no-unused-vars
 
-const { utils } = require("stylelint");
-
+//const { utils } = require('stylelint');
+console.log(utils);
 {
   'use strict';
 
@@ -67,16 +67,18 @@ const { utils } = require("stylelint");
     }
     renderInMenu(){
       const thisProduct = this;
-    
-    /* generate HTML based on template */
-    const generatedHTML = templates.menuProduct(thisProduct.data);
-    /* create element using utils.createElementFromHTML */
-    thisProduct element = utils.createDOMFromHTML(this.generatedHTML);
-    /* find menu container */
-    const menuContainer = document.querySelector(select.containerOf.menu);
-    /* add element to menu */
-    menuContainer.appendChild(thisProduct.element);
-  }
+
+      /* generate HTML based on template */
+      const generatedHTML = templates.menuProduct(thisProduct.data);
+      /* create element using utils.createElementFromHTML */
+      thisProduct.element = utils.createDOMFromHTML(generatedHTML);
+      /* find menu container */
+      const menuContainer = document.querySelector(select.containerOf.menu);
+      /* add element to menu */
+      menuContainer.appendChild(thisProduct.element);
+
+      console.log(generatedHTML);
+    }
   }
   console.log(Product);
   const app = {
