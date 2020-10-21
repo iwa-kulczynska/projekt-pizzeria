@@ -95,12 +95,12 @@ console.log(utils);
         /* find all active products */
         const products = document.querySelectorAll('.product.active');
         /* START LOOP: for each active product */
-        if(products.length > 0) {
-          for(const product in products){
-            /* remove class active for the active product */
-            products[product].classList.remove('active');
-            /* END LOOP: for each active product */
+        for(let i=0;i< products.length;i++){
+          /* remove class active for the active product */
+          if(products[i] != thisProduct){
+            products[i].classList.remove('active');
           }
+          /* END LOOP: for each active product */
         }
         /* toggle active class on element of thisProduct */
         thisProduct.element.classList.add('active');
