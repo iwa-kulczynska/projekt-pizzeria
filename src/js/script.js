@@ -93,6 +93,7 @@ console.log(utils);
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
     initAccordion(){
       const thisProduct = this;
@@ -169,18 +170,30 @@ console.log(utils);
           /* END ELSE IF: if option is not selected and option is default */
           }
           /* END LOOP: for each paramId in thisProduct.data.params */ 
+          /* variable for images */
+          const imageClass = classNames.menuProduct.imageVisible;
+          /* START IF: for images */
+          let images = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-' + optionId);
+          if(optionSelected) {
+            for(let image of images){
+              image.classList.add(imageClass);
+            }
+          }else {
+            for(let image of images){
+              image.classList.remove(imageClass);
+            }
+          }
+
+          /* set the contents of thisProduct.priceElem to be the value of variable price */
+          thisProduct.priceElem.innerHTML = price;
         }
 
-        /* set the contents of thisProduct.priceElem to be the value of variable price */
-        thisProduct.priceElem.innerHTML = price;
+        console.log('formData', formData);
+        console.log('new Product:', thisProduct);
       }
-
-      console.log('formData', formData);
-      console.log('new Product:', thisProduct);
-
     }
   }
-  
+
   console.log(Product);
   const app = {
     initMenu: function(){
