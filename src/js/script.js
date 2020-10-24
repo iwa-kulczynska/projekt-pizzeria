@@ -186,16 +186,15 @@ console.log(utils);
               image.classList.remove(imageClass);
             }
           }
-          /*multiply price by amount*/
-          price *= thisProduct.amountWidget.value;
-
-          /* set the contents of thisProduct.priceElem to be the value of variable price */
-          thisProduct.priceElem.innerHTML = price;
         }
-
         //console.log('formData', formData);
         //console.log('new Product:', thisProduct);
       }
+      /*multiply price by amount*/
+      price *= thisProduct.amountWidget.value;
+
+      /* set the contents of thisProduct.priceElem to be the value of variable price */
+      thisProduct.priceElem.innerHTML = price;
     }
 
     initAmountWidget(){
@@ -251,9 +250,10 @@ console.log(utils);
     initActions(){
       const thisWidget = this;
 
-      thisWidget.input.addEventListener('change', function(event){
-        thisWidget.setValue(element);
-      });
+      // thisWidget.input.addEventListener('updated', function(event){
+      //   thisProduct.processOrder();
+      //   //thisWidget.setValue(element);
+      // });
 
       thisWidget.linkDecrease.addEventListener('click', function(event){
         thisWidget.setValue(thisWidget.value -1);
