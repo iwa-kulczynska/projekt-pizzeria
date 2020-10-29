@@ -258,6 +258,12 @@ console.log(utils);
     }
     addToCart(){
       const thisProduct = this;
+
+
+
+      thisProduct.name = thisProduct.data.name;
+      thisProduct.amount = thisProduct.amountWidget.value;
+
       app.cart.add(thisProduct);
     }
 
