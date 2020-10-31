@@ -326,7 +326,7 @@ console.log(utils);
     announce(){
       const thisWidget = this;
 
-      const event = new Event('updated');
+      const event = new CustomEvent('updated', {bubbles: true});
       thisWidget.element.dispatchEvent(event);
     }
 
@@ -375,6 +375,10 @@ console.log(utils);
           thisCart.dom.toggleTrigger.classList.add(classNames.cart.wrapperActive);
         }
       });
+
+      thisCart.dom.productList.addEventListener('updated', function(){ 
+        thisCart.update();});
+
     }
 
     add(menuProduct){
